@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>营销落地页</title>
+<style>
+  :root{--violet:#7C5CFF;--violet-2:#A78BFF;--tx:#EDECF5;--tx-2:#A3A0BC;--tx-3:#6F6C86;--line:rgba(255,255,255,.1);}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Noto Sans SC",-apple-system,sans-serif;color:var(--tx);min-height:100vh;
+    background:radial-gradient(60% 50% at 50% 0%,rgba(124,92,255,.16),transparent 70%),#050509;
+    padding:64px 24px;display:flex;flex-direction:column;align-items:center;}
+  .wrap{width:100%;max-width:720px;}
+  .tag{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:1px;color:var(--violet-2);text-transform:uppercase;}
+  h1{font-family:"Sora",sans-serif;font-size:30px;font-weight:700;letter-spacing:-.5px;margin-top:12px;}
+  .sub{color:var(--tx-2);margin-top:10px;font-weight:300;line-height:1.7;}
+  .grid{margin-top:36px;display:grid;gap:14px;}
+  a.card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px;border-radius:18px;
+    text-decoration:none;color:inherit;background:rgba(255,255,255,.035);border:1px solid var(--line);transition:.2s;}
+  a.card:hover{border-color:var(--violet);background:rgba(124,92,255,.08);transform:translateY(-2px);}
+  .card .t{font-size:17px;font-weight:600;}
+  .card .d{font-size:13px;color:var(--tx-3);margin-top:5px;line-height:1.6;}
+  .card .arr{color:var(--violet-2);font-size:20px;flex:0 0 auto;}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="tag">MARKETING · LANDING PAGES</span>
+    <h1>营销落地页</h1>
+    <p class="sub">电商 / 企业 AI 落地服务的获客页。点击预览。</p>
+    <div class="grid">
+      <a class="card" href="./ecommerce-ai/">
+        <div><div class="t">电商 AI 工作流 · H5 落地页</div>
+        <div class="d">暗色 / 紫 · Canvas 氛围 · 选阶段互动 · 免费初聊 → 付费诊断</div></div>
+        <span class="arr">→</span>
+      </a>
+      <a class="card" href="./ai-consultant/">
+        <div><div class="t">企业 AI 工作流程落地顾问</div>
+        <div class="d">浅色 / 蓝 · 5 大场景 · 成功案例 · 免费初聊 · 企业微信</div></div>
+        <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
