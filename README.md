@@ -27,6 +27,39 @@ npm run build            # 产出 dist/（静态可部署）
 npm run preview          # 预览构建产物
 ```
 
+## 部署:Docker(国内服务器,推荐)
+
+GitHub Pages 国内访问不稳,生产用 Docker(nginx 托管两个 Vite 构建产物)。
+
+```bash
+# 服务器上(已装 docker + compose)
+docker compose up -d --build          # 构建并后台运行,映射宿主 8080
+# 访问  http://<服务器IP>:8080/
+#   电商页     http://<服务器IP>:8080/ecommerce-ai/
+#   企业顾问页  http://<服务器IP>:8080/ai-consultant/
+```
+
+国内构建加速(npm 走淘宝镜像):
+
+```bash
+NPM_REGISTRY=https://registry.npmmirror.com docker compose up -d --build
+# 或纯 docker:
+docker build --build-arg NPM_REGISTRY=https://registry.npmmirror.com -t market-landing .
+docker run -d --name market-landing -p 8080:80 --restart unless-stopped market-landing
+```
+
+说明:
+- 镜像分两段:`node:20-alpine` 构建 → `nginx:alpine` 托管;最终镜像只含静态产物,小且无 node。
+- `deploy/nginx.conf`:hash 资源长缓存、HTML 不缓存、未知路径 404。
+- 改完代码重新 `docker compose up -d --build` 即可。
+- 架构:在哪台机器 build 就是哪个架构;国内 amd64 服务器上直接 build 最省事。拉基础镜像慢就给 docker 配国内镜像加速器。
+- 域名 + HTTPS:前面再加一层 nginx/Caddy 反代到 8080,或用云厂商 LB。
+
+## 部署:GitHub Pages(海外/备用)
+
+`.github/workflows/deploy.yml` 已配,push 到 main 自动构建发布。国内访问受限,仅备用:
+https://30675137.github.io/market-landing/
+
 ## 新增一个落地页
 
 在 `pages/` 下新建目录，放一个独立的前端项目即可（推荐复制现有项目的脚手架起步）。

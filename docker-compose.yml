@@ -1,0 +1,12 @@
+services:
+  landing:
+    build:
+      context: .
+      args:
+        # 国内服务器可改为 https://registry.npmmirror.com
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
+    image: market-landing:latest
+    container_name: market-landing
+    ports:
+      - "8080:80"
+    restart: unless-stopped
