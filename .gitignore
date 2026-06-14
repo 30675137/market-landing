@@ -5,3 +5,11 @@ _design_pkg/
 .claude/
 .DS_Store
 *.local
+.gstack/
+skills/*/.venv/
+**/__pycache__/
+*.pyc
+skills/*/.gstack/
+*.mp3
+*.m4a
+.dev-sop-flow/
